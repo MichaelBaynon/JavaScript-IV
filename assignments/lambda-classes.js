@@ -30,8 +30,8 @@ class Instructor extends Person {
     demo(subject) {
         return `Today we are learning about ${subject}`;
     }
-    grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`;
+    grade(subject) {
+        return `${this.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -70,7 +70,7 @@ class ProjectManager extends Instructor {
         return `${name} announces to ${channel}, at channel standy times!`;
     }
     debugsCode(student, subject) {
-        return `${name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -99,6 +99,7 @@ const bob = new Student({
 });
 
 const jack = new ProjectManager({
+    location: 'england',
     name: 'Jack',
     gradClassName: 'Larp19',
     favInstuctor: 'Dan Shermnmnm',
@@ -111,7 +112,11 @@ const jack = new ProjectManager({
 
 // CONSOLE LOGS =================================================
 
-console.log(fred.location);
-console.log(jack.gradClassName);
+console.log(fred.speak());
+console.log(jack.speak());
 console.log(bob.className);
 console.log(bob.sprintChallenge);
+
+
+console.log(fred.grade('reduxSprint'))
+console.log(jack.debugsCode(bob, 'his html'))
